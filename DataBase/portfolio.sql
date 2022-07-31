@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 29, 2022 at 11:19 PM
+-- Generation Time: Jul 31, 2022 at 07:11 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `education` (
-  `id_education` int(11) NOT NULL,
+  `id_education` int(20) NOT NULL,
   `title` varchar(45) DEFAULT NULL,
   `institution` varchar(45) DEFAULT NULL,
   `description` varchar(240) DEFAULT NULL,
@@ -142,7 +142,7 @@ CREATE TABLE `project` (
 INSERT INTO `project` (`id_project`, `title`, `description`, `technologies`, `img_url`, `live_url`, `repo_url`, `year`, `id_person`) VALUES
 (1, 'Portfolio - Argentina Programa #YoProgramo', 'Designed in the course Full stack web development of Argentina Programa.', 'Angular-SpringBoot-TS-Java', 'assets/images/img/project1.png', 'https://fedebayer.github.io/portfolio-FrontEnd/index.html', 'https://github.com/FedeBayer/tpeWeb2', 2022, 1),
 (2, 'Algorithms/Data structures Java project', 'Java project includes OOP, data structures, recursion, sort, trees, graphs, backtracking and greedy.', 'Java', 'assets/images/img/project2.png', NULL, 'https://github.com/FedeBayer/tpeProg3', 2022, 1),
-(3, 'Web page with DataBase and Api Rest', 'Page back-end oriented, includes MVC, database, routing, users administration and Api Rest.', 'PHP-MySQL-JS', 'assets/images/img/project3.png', NULL, 'https://github.com/FedeBayer/tpeWeb2', 2021, 1),
+(3, 'Web page with DataBase and Api Rest', 'Page back-end oriented, includes MVC, database, routing, users administration and Api Rest.', 'VUE.js-PHP-MySQL-JS', 'assets/images/img/project3.png', NULL, 'https://github.com/FedeBayer/tpeWeb2', 2021, 1),
 (4, 'Web Page of medical Turns', 'Page front/back-end, includes MVC, database, Api Rest, UML, practice of SCRUM with classmates in University.', 'PHP-MySQL-JS', 'assets/images/img/project4.png', '', 'https://github.com/FedeBayer/tpeMetodologias', 2022, 1),
 (5, 'Single Page Application Simpson', 'Front-end page, includes Responsive design, extracting elements from API and SPA.', 'JS-HTML-CSS', 'assets/images/img/project5.png', NULL, 'https://github.com/FedeBayer/tpeWeb1', 2021, 1),
 (6, 'Object oriented Java project', 'Java project includes object-oriented paradigm, Composite, and Strategy pattern design.', 'Java', 'assets/images/img/project6.png', '', 'https://github.com/FedeBayer/tpeProg2', 2021, 1);
@@ -334,7 +334,7 @@ ALTER TABLE `user_has_role`
 -- AUTO_INCREMENT for table `education`
 --
 ALTER TABLE `education`
-  MODIFY `id_education` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_education` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `experience`
