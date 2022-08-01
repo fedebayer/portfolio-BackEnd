@@ -12,10 +12,15 @@ public class Experience {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(nullable=false, updatable=false)
     private Long id_experience;
+    @Column(length = 45)
     private String title;
+    @Column(length = 45)
     private String company;
+    @Column(length = 240)
     private String description;
+    @Column(length = 45)
     private String date;
+    @Column(length = 100)
     private String img_url;
 
     public Experience() {
