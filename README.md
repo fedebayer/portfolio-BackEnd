@@ -11,6 +11,14 @@ More info of the project in the [wiki](https://github.com/FedeBayer/portfolio-Ba
 Technologies used: MySql Workbench, XAMPP and PhpMyAdmin.
 There is the ERR Diagram too.
 
-## Install and run
+To import the database use the `portfolio.sql` file in DataBase folder.
 
-To run the database use the `portfolio.sql` file in DataBase folder.
+## API REST
+
+Technologies used: Spring Boot, JPA, Hibernate, Java.
+
+url: `http://localhost:8080`
+example of endpoint: `http://localhost:8080/persons/all` 
+
+
+
