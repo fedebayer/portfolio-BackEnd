@@ -1,5 +1,6 @@
 package com.portfolio.fb.model;
 
+import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,8 +14,10 @@ public class Skill {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id_skill;
+    @NotNull
     @Column(length = 45)
     private String name;
+    @NotNull
    @Min(1) @Max(100)
     private int lvl;
 

@@ -1,5 +1,6 @@
 package com.portfolio.fb.model;
 
+import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,12 +13,15 @@ public class Experience {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(nullable=false, updatable=false)
     private Long id_experience;
+    @NotNull
     @Column(length = 45)
     private String title;
     @Column(length = 45)
     private String company;
+    @NotNull
     @Column(length = 240)
     private String description;
+    @NotNull
     @Column(length = 45)
     private String date;
     @Column(length = 100)
