@@ -1,9 +1,10 @@
 package com.portfolio.fb.controller;
 
 import com.portfolio.fb.model.Skill;
-import com.portfolio.fb.services.ISkillService;
+import com.portfolio.fb.service.ISkillService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +24,7 @@ public class SkillController {
         return new ResponseEntity<>(iskillServ.getAllSkills(), HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/add")
     public ResponseEntity<Skill> addSkill(@RequestBody Skill skill){
         Skill newSkill = iskillServ.addSkill(skill);
@@ -34,12 +36,14 @@ public class SkillController {
         return new ResponseEntity<>(iskillServ.getSkillById(id), HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteSkillById(@PathVariable Long id){
         iskillServ.deleteSkillById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update")
     public ResponseEntity<Skill> updateSkill(@RequestBody Skill skill)  {
         Skill updatedSkill = iskillServ.updateSkill(skill);

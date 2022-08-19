@@ -1,9 +1,10 @@
 package com.portfolio.fb.controller;
 
 import com.portfolio.fb.model.Language;
-import com.portfolio.fb.services.ILanguageService;
+import com.portfolio.fb.service.ILanguageService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,11 +19,13 @@ public class LanguageController {
         this.ilanguageServ = ilanguageServ;
     }
 
+
     @GetMapping("/all")
     public ResponseEntity<List<Language>> getAllLanguages(){
         return new ResponseEntity<>(ilanguageServ.getAllLanguages(), HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/add")
     public ResponseEntity<Language> addLanguage(@RequestBody Language lang){
         Language newLang = ilanguageServ.addLanguage(lang);
@@ -34,12 +37,14 @@ public class LanguageController {
         return new ResponseEntity<>(ilanguageServ.getLanguageById(id), HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteLanguageById(@PathVariable Long id){
         ilanguageServ.deleteLanguageById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update")
     public ResponseEntity<Language> updateLanguage(@RequestBody Language lang)  {
         Language updatedLang = ilanguageServ.updateLanguage(lang);
