@@ -1,5 +1,9 @@
 package com.portfolio.fb.security.jwt;
 
+import com.nimbusds.jwt.JWT;
+import com.nimbusds.jwt.JWTClaimsSet;
+import com.nimbusds.jwt.JWTParser;
+import com.portfolio.fb.security.dto.JwtDto;
 import com.portfolio.fb.security.model.Admin;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
@@ -9,6 +13,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 
+import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
@@ -28,7 +33,7 @@ public class JwtProvider {
                 .setSubject(admin.getUsername())
                 .claim("roles",roles)
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(new Date().getTime() + expiration * 1000))
+                .setExpiration(new Date(new Date().getTime() + expiration))
                 .signWith(SignatureAlgorithm.HS256,secret.getBytes())
                 .compact();
     }
@@ -53,5 +58,24 @@ public class JwtProvider {
             logger.error("fail in token signature");
         }
         return false;
+    }
+
+    public String refreshToken(JwtDto jwtDto) throws ParseException {
+        try{
+            Jwts.parser().setSigningKey(secret.getBytes()).parseClaimsJws(jwtDto.getToken());
+        }catch(ExpiredJwtException e){
+            JWT jwt = JWTParser.parse(jwtDto.getToken());
+            JWTClaimsSet claims = jwt.getJWTClaimsSet();
+            String username = claims.getSubject();
+            List<String> roles = (List<String>) claims.getClaim("roles");
+            return Jwts.builder()
+                    .setSubject(username)
+                    .claim("roles",roles)
+                    .setIssuedAt(new Date())
+                    .setExpiration(new Date(new Date().getTime() + expiration))
+                    .signWith(SignatureAlgorithm.HS256,secret.getBytes())
+                    .compact();
+        }
+        return null;
     }
 }
