@@ -1,5 +1,6 @@
 package com.portfolio.fb.model;
 
+import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,10 +14,13 @@ public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id_project;
+    @NotNull
     @Column(length = 45)
     private String title;
+    @NotNull
     @Column(length = 170)
     private String description;
+    @NotNull
     @Column(length = 45)
     private String technologies;
     @Column(length = 100)
@@ -25,6 +29,7 @@ public class Project {
     private String live_url;
     @Column(length = 100)
     private String repo_url;
+    @NotNull
     @Min(2021)  @Max(3000)
     private int year;
 

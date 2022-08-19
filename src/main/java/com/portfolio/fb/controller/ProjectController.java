@@ -1,9 +1,10 @@
 package com.portfolio.fb.controller;
 
 import com.portfolio.fb.model.Project;
-import com.portfolio.fb.services.IProjectService;
+import com.portfolio.fb.service.IProjectService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +24,7 @@ public class ProjectController {
         return new ResponseEntity<>(iprojectServ.getAllProjects(), HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/add")
     public ResponseEntity<Project> addProject(@RequestBody Project project){
         Project newProject = iprojectServ.addProject(project);
@@ -34,12 +36,14 @@ public class ProjectController {
         return new ResponseEntity<>(iprojectServ.getProjectById(id), HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteProjectById(@PathVariable Long id){
         iprojectServ.deleteProjectById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update")
     public ResponseEntity<Project> updateProject(@RequestBody Project project)  {
         Project updatedProject = iprojectServ.updateProject(project);

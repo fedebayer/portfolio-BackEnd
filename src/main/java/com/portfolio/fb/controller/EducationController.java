@@ -1,9 +1,10 @@
 package com.portfolio.fb.controller;
 
 import com.portfolio.fb.model.Education;
-import com.portfolio.fb.services.IEducationService;
+import com.portfolio.fb.service.IEducationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +25,7 @@ public class EducationController {
         return new ResponseEntity<>(ieduServ.getAllEducations(), HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/add")
     public ResponseEntity<Education> addEducation(@RequestBody Education edu){
         Education newEdu = ieduServ.addEducation(edu);
@@ -35,12 +37,14 @@ public class EducationController {
         return new ResponseEntity<>(ieduServ.getEducationById(id), HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteEducationById(@PathVariable Long id){
         ieduServ.deleteEducationById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update")
     public ResponseEntity<Education> updateEducation(@RequestBody Education edu)  {
         Education updatedEdu = ieduServ.updateEducation(edu);

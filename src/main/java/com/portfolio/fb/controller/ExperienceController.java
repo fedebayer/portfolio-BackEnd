@@ -1,9 +1,10 @@
 package com.portfolio.fb.controller;
 
 import com.portfolio.fb.model.Experience;
-import com.portfolio.fb.services.IExperienceService;
+import com.portfolio.fb.service.IExperienceService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +25,7 @@ public class ExperienceController {
         return new ResponseEntity<>(iexpServ.getAllExperiences(), HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/add")
     public ResponseEntity<Experience> addExperience(@RequestBody Experience exp){
         Experience newExp = iexpServ.addExperience(exp);
@@ -35,12 +37,14 @@ public class ExperienceController {
         return new ResponseEntity<>(iexpServ.getExperienceById(id), HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteExperienceById(@PathVariable Long id){
         iexpServ.deleteExperienceById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update")
     public ResponseEntity<Experience> updateExperience(@RequestBody Experience exp)  {
         Experience updatedExp = iexpServ.updateExperience(exp);

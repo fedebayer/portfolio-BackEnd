@@ -1,5 +1,6 @@
 package com.portfolio.fb.model;
 
+import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +12,7 @@ public class SoftSkill {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id_soft_skill;
+    @NotNull
     @Column(length = 45)
     private String name;
 

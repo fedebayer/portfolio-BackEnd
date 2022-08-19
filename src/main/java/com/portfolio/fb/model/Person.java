@@ -1,5 +1,6 @@
 package com.portfolio.fb.model;
 
+import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,20 +14,26 @@ public class Person{
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(nullable=false, updatable=false)
     private Long id_person;
+    @NotNull
     @Column(length = 45)
     private String name;
+    @NotNull
     @Column(length = 45)
     private String job_title;
+    @NotNull
     @Column(length = 470)
     private String about;
+    @NotNull
     @Column(length = 45)
     private String email;
     @Column(length = 70)
     private String linkedin_url;
     @Column(length = 70)
     private String github_url;
+    @NotNull
     @Column(length = 100)
     private String img_url;
+    @NotNull
     @Column(length = 100)
     private String banner_url;
 

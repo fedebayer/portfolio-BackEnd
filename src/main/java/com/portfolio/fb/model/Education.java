@@ -1,5 +1,6 @@
 package com.portfolio.fb.model;
 
+import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,12 +12,16 @@ public class Education {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id_education;
+    @NotNull
     @Column(length = 45)
     private String title;
+    @NotNull
     @Column(length = 45)
     private String institution;
+    @NotNull
     @Column(length = 240)
     private String description;
+    @NotNull
     @Column(length = 45)
     private String date;
     @Column(length = 100)
