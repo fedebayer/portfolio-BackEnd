@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 01, 2022 at 09:45 PM
+-- Generation Time: Aug 19, 2022 at 03:10 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -145,7 +145,7 @@ CREATE TABLE `soft_skill` (
 
 CREATE TABLE `user` (
   `id_user` bigint(20) NOT NULL,
-  `mail` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
   `password` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
