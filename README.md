@@ -19,7 +19,7 @@
     <a href="https://github.com/FedeBayer/portfolio-BackEnd/wiki"><strong>Explore the wiki »</strong></a>
     <br />
     <br />
-    <a href="https://fedebayer.github.io/portfolio-BackEnd/">View Demo</a>
+    <a href="https://fedebayer.github.io/portfolio-FrontEnd/">View Demo</a>
     ·
     <a href="https://github.com/FedeBayer/portfolio-BackEnd/issues">Report Bug</a>
     ·
