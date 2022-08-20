@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `education` (
   `id_education` bigint(20) NOT NULL,
-  `title` varchar(45) DEFAULT NULL,
-  `institution` varchar(45) DEFAULT NULL,
+  `title` varchar(70) DEFAULT NULL,
+  `institution` varchar(70) DEFAULT NULL,
   `description` varchar(240) DEFAULT NULL,
   `date` varchar(45) DEFAULT NULL,
   `img_url` varchar(100) DEFAULT NULL,
@@ -45,8 +45,8 @@ CREATE TABLE `education` (
 
 CREATE TABLE `experience` (
   `id_experience` bigint(20) NOT NULL,
-  `title` varchar(45) DEFAULT NULL,
-  `company` varchar(45) DEFAULT NULL,
+  `title` varchar(70) DEFAULT NULL,
+  `company` varchar(70) DEFAULT NULL,
   `description` varchar(240) DEFAULT NULL,
   `date` varchar(45) DEFAULT NULL,
   `img_url` varchar(100) DEFAULT NULL,
