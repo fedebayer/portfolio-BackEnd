@@ -13,10 +13,10 @@ public class Education {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id_education;
     @NotNull
-    @Column(length = 45)
+    @Column(length = 70)
     private String title;
     @NotNull
-    @Column(length = 45)
+    @Column(length = 70)
     private String institution;
     @NotNull
     @Column(length = 240)

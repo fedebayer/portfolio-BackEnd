@@ -14,9 +14,9 @@ public class Experience {
     @Column(nullable=false, updatable=false)
     private Long id_experience;
     @NotNull
-    @Column(length = 45)
+    @Column(length = 70)
     private String title;
-    @Column(length = 45)
+    @Column(length = 70)
     private String company;
     @NotNull
     @Column(length = 240)
