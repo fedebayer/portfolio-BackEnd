@@ -5,7 +5,7 @@ import com.portfolio.fb.model.SoftSkill;
 import java.util.List;
 
 public interface ISoftSkillService {
-    List<SoftSkill> getAllSoftSkills();
+    List<SoftSkill> getSoftSkills();
 
     SoftSkill addSoftSkill(SoftSkill soft);
 

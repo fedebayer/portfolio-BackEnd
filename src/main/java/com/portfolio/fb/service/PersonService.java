@@ -17,7 +17,7 @@ public class PersonService implements IPersonService{
         this.personRepo = personRepo;
     }
     @Override
-    public List<Person> getAllPersons() {
+    public List<Person> getPersons() {
         return personRepo.findAll();
     }
 

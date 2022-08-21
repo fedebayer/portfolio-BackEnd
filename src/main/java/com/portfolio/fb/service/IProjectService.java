@@ -5,7 +5,7 @@ import com.portfolio.fb.model.Project;
 import java.util.List;
 
 public interface IProjectService {
-    List<Project> getAllProjects();
+    List<Project> getProjects();
 
     Project addProject(Project project);
 

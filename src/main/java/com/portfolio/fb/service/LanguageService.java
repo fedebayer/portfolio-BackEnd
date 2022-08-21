@@ -17,7 +17,7 @@ public class LanguageService implements ILanguageService{
         this.languageRepo = languageRepo;
     }
     @Override
-    public List<Language> getAllLanguages() {
+    public List<Language> getLanguages() {
         return languageRepo.findAll();
     }
 

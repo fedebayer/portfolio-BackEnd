@@ -19,13 +19,13 @@ public class SkillController {
         this.iskillServ = iskillServ;
     }
 
-    @GetMapping("/all")
-    public ResponseEntity<List<Skill>> getAllSkills(){
-        return new ResponseEntity<>(iskillServ.getAllSkills(), HttpStatus.OK);
+    @GetMapping()
+    public ResponseEntity<List<Skill>> getSkills(){
+        return new ResponseEntity<>(iskillServ.getSkills(), HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/add")
+    @PostMapping()
     public ResponseEntity<Skill> addSkill(@RequestBody Skill skill){
         Skill newSkill = iskillServ.addSkill(skill);
         return new ResponseEntity<>(newSkill, HttpStatus.CREATED);
@@ -37,14 +37,14 @@ public class SkillController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteSkillById(@PathVariable Long id){
         iskillServ.deleteSkillById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/update")
+    @PutMapping()
     public ResponseEntity<Skill> updateSkill(@RequestBody Skill skill)  {
         Skill updatedSkill = iskillServ.updateSkill(skill);
         return new ResponseEntity<>(updatedSkill, HttpStatus.OK);

@@ -5,7 +5,7 @@ import com.portfolio.fb.model.Skill;
 import java.util.List;
 
 public interface ISkillService {
-    List<Skill> getAllSkills();
+    List<Skill> getSkills();
 
     Skill addSkill(Skill skill);
 

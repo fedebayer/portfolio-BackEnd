@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IPersonService {
 
-    List<Person> getAllPersons();
+    List<Person> getPersons();
 
     Person addPerson(Person pers);
 

@@ -19,13 +19,13 @@ public class PersonController {
         this.ipersonServ = ipersonServ;
     }
 
-    @GetMapping("/all")
-    public ResponseEntity<List<Person>> getAllPersons(){
-        return new ResponseEntity<>(ipersonServ.getAllPersons(), HttpStatus.OK);
+    @GetMapping()
+    public ResponseEntity<List<Person>> getPersons(){
+        return new ResponseEntity<>(ipersonServ.getPersons(), HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/add")
+    @PostMapping()
     public ResponseEntity<Person> addPerson(@RequestBody Person pers){
         Person newPers = ipersonServ.addPerson(pers);
         return new ResponseEntity<>(newPers, HttpStatus.CREATED);
@@ -37,14 +37,14 @@ public class PersonController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deletePersonById(@PathVariable Long id){
         ipersonServ.deletePersonById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/update")
+    @PutMapping()
     public ResponseEntity<Person> updatePerson(@RequestBody Person pers)  {
         Person updatedPers = ipersonServ.updatePerson(pers);
         return new ResponseEntity<>(updatedPers, HttpStatus.OK);

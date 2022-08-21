@@ -17,7 +17,7 @@ public class ProjectService implements IProjectService{
         this.projectRepo = projectRepo;
     }
     @Override
-    public List<Project> getAllProjects() {
+    public List<Project> getProjects() {
         return projectRepo.findAll();
     }
 

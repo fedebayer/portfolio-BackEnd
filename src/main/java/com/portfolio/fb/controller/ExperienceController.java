@@ -20,13 +20,13 @@ public class ExperienceController {
         this.iexpServ = iexpServ;
     }
 
-    @GetMapping("/all")
-    public ResponseEntity<List<Experience>> getAllExperiences(){
-        return new ResponseEntity<>(iexpServ.getAllExperiences(), HttpStatus.OK);
+    @GetMapping()
+    public ResponseEntity<List<Experience>> getExperiences(){
+        return new ResponseEntity<>(iexpServ.getExperiences(), HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/add")
+    @PostMapping()
     public ResponseEntity<Experience> addExperience(@RequestBody Experience exp){
         Experience newExp = iexpServ.addExperience(exp);
         return new ResponseEntity<>(newExp, HttpStatus.CREATED);
@@ -38,14 +38,14 @@ public class ExperienceController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteExperienceById(@PathVariable Long id){
         iexpServ.deleteExperienceById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/update")
+    @PutMapping()
     public ResponseEntity<Experience> updateExperience(@RequestBody Experience exp)  {
         Experience updatedExp = iexpServ.updateExperience(exp);
         return new ResponseEntity<>(updatedExp, HttpStatus.OK);

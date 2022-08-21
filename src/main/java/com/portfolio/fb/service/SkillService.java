@@ -17,7 +17,7 @@ public class SkillService implements ISkillService{
         this.skillRepo = skillRepo;
     }
     @Override
-    public List<Skill> getAllSkills() {
+    public List<Skill> getSkills() {
         return skillRepo.findAll();
     }
 

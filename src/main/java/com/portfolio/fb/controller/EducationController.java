@@ -20,13 +20,13 @@ public class EducationController {
         this.ieduServ = ieduServ;
     }
 
-    @GetMapping("/all")
-    public ResponseEntity<List<Education>> getAllEducations(){
-        return new ResponseEntity<>(ieduServ.getAllEducations(), HttpStatus.OK);
+    @GetMapping()
+    public ResponseEntity<List<Education>> getEducations(){
+        return new ResponseEntity<>(ieduServ.getEducations(), HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/add")
+    @PostMapping()
     public ResponseEntity<Education> addEducation(@RequestBody Education edu){
         Education newEdu = ieduServ.addEducation(edu);
         return new ResponseEntity<>(newEdu, HttpStatus.CREATED);
@@ -38,14 +38,14 @@ public class EducationController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteEducationById(@PathVariable Long id){
         ieduServ.deleteEducationById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/update")
+    @PutMapping("")
     public ResponseEntity<Education> updateEducation(@RequestBody Education edu)  {
         Education updatedEdu = ieduServ.updateEducation(edu);
         return new ResponseEntity<>(updatedEdu, HttpStatus.OK);

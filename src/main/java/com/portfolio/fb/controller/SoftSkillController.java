@@ -19,13 +19,13 @@ public class SoftSkillController {
         this.isoftServ = isoftServ;
     }
 
-    @GetMapping("/all")
-    public ResponseEntity<List<SoftSkill>> getAllSoftSkills(){
-        return new ResponseEntity<>(isoftServ.getAllSoftSkills(), HttpStatus.OK);
+    @GetMapping()
+    public ResponseEntity<List<SoftSkill>> getSoftSkills(){
+        return new ResponseEntity<>(isoftServ.getSoftSkills(), HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/add")
+    @PostMapping()
     public ResponseEntity<SoftSkill> addSoftSkill(@RequestBody SoftSkill soft){
         SoftSkill newSoft = isoftServ.addSoftSkill(soft);
         return new ResponseEntity<>(newSoft, HttpStatus.CREATED);
@@ -37,14 +37,14 @@ public class SoftSkillController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteSoftSkillById(@PathVariable Long id){
         isoftServ.deleteSoftSkillById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/update")
+    @PutMapping()
     public ResponseEntity<SoftSkill> updateSoftSkill(@RequestBody SoftSkill soft)  {
         SoftSkill updatedSoft = isoftServ.updateSoftSkill(soft);
         return new ResponseEntity<>(updatedSoft, HttpStatus.OK);

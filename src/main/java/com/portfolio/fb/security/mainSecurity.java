@@ -54,7 +54,14 @@ public class mainSecurity extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable()
                 .authorizeHttpRequests()
                 .antMatchers("/auth/**",
-                        "/**/all",
+                        "/auth",
+                        "/persons",
+                        "/educations",
+                        "/experience",
+                        "/languages",
+                        "/skills",
+                        "/soft-skills",
+                        "/projects",
                         "/**/{id}",
                         "v2/api-docs/**",
                         "/swagger-ui/**",

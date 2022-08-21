@@ -5,7 +5,7 @@ import com.portfolio.fb.model.Experience;
 import java.util.List;
 
 public interface IExperienceService {
-    List<Experience> getAllExperiences();
+    List<Experience> getExperiences();
 
     Experience addExperience(Experience exp);
 

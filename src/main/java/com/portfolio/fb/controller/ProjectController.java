@@ -19,13 +19,13 @@ public class ProjectController {
         this.iprojectServ = iprojectServ;
     }
 
-    @GetMapping("/all")
-    public ResponseEntity<List<Project>> getAllProjects(){
-        return new ResponseEntity<>(iprojectServ.getAllProjects(), HttpStatus.OK);
+    @GetMapping()
+    public ResponseEntity<List<Project>> getProjects(){
+        return new ResponseEntity<>(iprojectServ.getProjects(), HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/add")
+    @PostMapping()
     public ResponseEntity<Project> addProject(@RequestBody Project project){
         Project newProject = iprojectServ.addProject(project);
         return new ResponseEntity<>(newProject, HttpStatus.CREATED);
@@ -37,14 +37,14 @@ public class ProjectController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteProjectById(@PathVariable Long id){
         iprojectServ.deleteProjectById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/update")
+    @PutMapping()
     public ResponseEntity<Project> updateProject(@RequestBody Project project)  {
         Project updatedProject = iprojectServ.updateProject(project);
         return new ResponseEntity<>(updatedProject, HttpStatus.OK);

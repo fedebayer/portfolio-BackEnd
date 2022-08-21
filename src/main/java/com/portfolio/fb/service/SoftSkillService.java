@@ -17,7 +17,7 @@ public class SoftSkillService implements ISoftSkillService{
         this.softRepo = softRepo;
     }
     @Override
-    public List<SoftSkill> getAllSoftSkills() {
+    public List<SoftSkill> getSoftSkills() {
         return softRepo.findAll();
     }
 

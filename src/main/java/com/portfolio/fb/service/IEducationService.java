@@ -5,7 +5,7 @@ import com.portfolio.fb.model.Education;
 import java.util.List;
 
 public interface IEducationService {
-    List<Education> getAllEducations();
+    List<Education> getEducations();
 
     Education addEducation(Education edu);
 

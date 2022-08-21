@@ -41,7 +41,7 @@ public class AuthController {
     @Autowired
     JwtProvider jwtProvider;
 
-    @PostMapping("/add")
+    @PostMapping()
     public ResponseEntity<?> neww(@Valid @RequestBody NewUser newUser, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return new ResponseEntity(new Message("misplaced fields or invalid email"), HttpStatus.BAD_REQUEST);

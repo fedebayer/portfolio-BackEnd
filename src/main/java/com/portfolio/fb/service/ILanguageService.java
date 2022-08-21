@@ -5,7 +5,7 @@ import com.portfolio.fb.model.Language;
 import java.util.List;
 
 public interface ILanguageService {
-    List<Language> getAllLanguages();
+    List<Language> getLanguages();
 
     Language addLanguage(Language lang);
 
