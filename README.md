@@ -19,17 +19,21 @@
     <a href="https://github.com/FedeBayer/portfolio-BackEnd/wiki"><strong>Explore the wiki »</strong></a>
     <br />
     <br />
+    <a href="https://porfolio-fb.web.app/">View Live Page</a>
+    ·
+    <a href="https://github.com/FedeBayer/portfolio-FrontEnd/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/FedeBayer/portfolio-FrontEnd/issues">Request Feature</a>
+    .
     <a href="https://fedebayer.github.io/portfolio-FrontEnd/">View Demo</a>
-    ·
-    <a href="https://github.com/FedeBayer/portfolio-BackEnd/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/FedeBayer/portfolio-BackEnd/issues">Request Feature</a>
   </p>
 </div>
 
 ## Introduction
 
 This project is about a **full-stack web**, in this case a web portfolio.
+
+Here is the deployed web: <a href="https://porfolio-fb.web.app/">https://porfolio-fb.web.app/</a>
 
 This part focus on the backend of the page (**Database and API**).
 
