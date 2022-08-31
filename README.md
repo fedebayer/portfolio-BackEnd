@@ -35,6 +35,9 @@ This project is about a **full-stack web**, in this case a web portfolio.
 
 Here is the deployed web: <a href="https://porfolio-fb.web.app/">https://porfolio-fb.web.app/</a>
 
+Here is the deployed backend: https://portfolio-fb-back.herokuapp.com
+(you can try adding things like /persons, /skills, etc.)
+
 This part focus on the backend of the page (**Database and API**).
 
 Here is more info about the [frontend](https://github.com/FedeBayer/portfolio-FrontEnd)
@@ -80,13 +83,16 @@ Implemented with **MVC** design pattern.
 examples of endpoints
 
 ```js
+url: `https://portfolio-fb-back.herokuapp.com`
+getPersonList: `https://portfolio-fb-back.herokuapp.com/persons` 
+
+other example
 url: `http://localhost:8080`
-getPersonList: `http://localhost:8080/persons/all` 
 ```
 
 It was used Swagger for the API documentation, here is the link:
 ```js
-`http://localhost:8080/swagger-ui/index.html` 
+`https://portfolio-fb-back.herokuapp.com/swagger-ui/index.html` 
 ```
 or use 
 ```js
