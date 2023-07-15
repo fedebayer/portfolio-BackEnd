@@ -4,21 +4,25 @@ import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
-@Getter @Setter
+@Getter
+@Setter
 @Entity
 public class Language {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id_language;
     @NotNull
-    @Column(length = 45)
     private String name;
     @NotNull
-    @Min(1) @Max(100)
+    @Min(1)
+    @Max(100)
     private int lvl;
 
     public Language() {

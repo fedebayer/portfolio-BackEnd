@@ -6,25 +6,21 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Getter @Setter
+@Getter
+@Setter
 @Entity
 public class Experience {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(nullable=false, updatable=false)
+    @Column(nullable = false, updatable = false)
     private Long id_experience;
     @NotNull
-    @Column(length = 70)
     private String title;
-    @Column(length = 70)
     private String company;
     @NotNull
-    @Column(length = 240)
     private String description;
     @NotNull
-    @Column(length = 45)
     private String date;
-    @Column(length = 100)
     private String img_url;
 
     public Experience() {

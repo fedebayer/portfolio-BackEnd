@@ -4,27 +4,26 @@ import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-@Getter @Setter
+@Getter
+@Setter
 @Entity
 public class Education {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id_education;
     @NotNull
-    @Column(length = 70)
     private String title;
     @NotNull
-    @Column(length = 70)
     private String institution;
     @NotNull
-    @Column(length = 240)
     private String description;
     @NotNull
-    @Column(length = 45)
     private String date;
-    @Column(length = 100)
     private String img_url;
 
     public Education() {

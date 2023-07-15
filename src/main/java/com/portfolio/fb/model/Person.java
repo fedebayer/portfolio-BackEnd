@@ -7,46 +7,39 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.List;
 
-@Getter @Setter
+@Getter
+@Setter
 @Entity
-public class Person{
+public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(nullable=false, updatable=false)
+    @Column(nullable = false, updatable = false)
     private Long id_person;
     @NotNull
-    @Column(length = 45)
     private String name;
     @NotNull
-    @Column(length = 45)
     private String job_title;
     @NotNull
-    @Column(length = 470)
     private String about;
     @NotNull
-    @Column(length = 45)
     private String email;
-    @Column(length = 70)
     private String linkedin_url;
-    @Column(length = 70)
     private String github_url;
     @NotNull
-    @Column(length = 100)
     private String img_url;
     @NotNull
-    @Column(length = 100)
     private String banner_url;
 
-    @OneToMany( mappedBy = "id_experience", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "id_experience", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Experience> experiences;
 
-    @OneToMany( mappedBy = "id_education", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "id_education", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Education> educations;
 
-    @OneToMany( mappedBy = "id_skill", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "id_skill", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Skill> skills;
 
-    @OneToMany( mappedBy = "id_soft_skill", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "id_soft_skill", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<SoftSkill> softSkills;
 
 
