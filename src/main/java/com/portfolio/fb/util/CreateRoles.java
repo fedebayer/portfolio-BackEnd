@@ -1,4 +1,4 @@
-package com.portfolio.fb.util;
+/*package com.portfolio.fb.util;
 
 import com.portfolio.fb.security.enums.RoleName;
 import com.portfolio.fb.security.model.Role;
@@ -19,4 +19,4 @@ public class CreateRoles implements CommandLineRunner {
         roleService.addRole(roleAdmin);
         roleService.addRole(roleUser);
     }
-}
+}*/
