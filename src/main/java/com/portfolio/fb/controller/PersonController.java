@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "https://porfolio-fb.web.app/")
+@CrossOrigin(origins = {"https://porfolio-fb.web.app/", "https://fedebayer.web.app/"})
 @RestController
 @RequestMapping("/persons")
 public class PersonController {
@@ -20,32 +20,32 @@ public class PersonController {
     }
 
     @GetMapping()
-    public ResponseEntity<List<Person>> getPersons(){
+    public ResponseEntity<List<Person>> getPersons() {
         return new ResponseEntity<>(ipersonServ.getPersons(), HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping()
-    public ResponseEntity<Person> addPerson(@RequestBody Person pers){
+    public ResponseEntity<Person> addPerson(@RequestBody Person pers) {
         Person newPers = ipersonServ.addPerson(pers);
         return new ResponseEntity<>(newPers, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Person> getPersonById(@PathVariable Long id){
+    public ResponseEntity<Person> getPersonById(@PathVariable Long id) {
         return new ResponseEntity<>(ipersonServ.getPersonById(id), HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deletePersonById(@PathVariable Long id){
+    public ResponseEntity<?> deletePersonById(@PathVariable Long id) {
         ipersonServ.deletePersonById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping()
-    public ResponseEntity<Person> updatePerson(@RequestBody Person pers)  {
+    public ResponseEntity<Person> updatePerson(@RequestBody Person pers) {
         Person updatedPers = ipersonServ.updatePerson(pers);
         return new ResponseEntity<>(updatedPers, HttpStatus.OK);
     }

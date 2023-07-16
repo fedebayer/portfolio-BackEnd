@@ -58,6 +58,17 @@ public class Person {
         this.banner_url = banner_url;
     }
 
+    public Person(String name, String job_title, String about, String email, String linkedin_url, String github_url, String img_url, String banner_url) {
+        this.name = name;
+        this.job_title = job_title;
+        this.about = about;
+        this.email = email;
+        this.linkedin_url = linkedin_url;
+        this.github_url = github_url;
+        this.img_url = img_url;
+        this.banner_url = banner_url;
+    }
+
     @Override
     public String toString() {
         return "Person{" +

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "https://porfolio-fb.web.app/")
+@CrossOrigin(origins = {"https://porfolio-fb.web.app/", "https://fedebayer.web.app/"})
 @RestController
 @RequestMapping("/skills")
 public class SkillController {
@@ -20,32 +20,32 @@ public class SkillController {
     }
 
     @GetMapping()
-    public ResponseEntity<List<Skill>> getSkills(){
+    public ResponseEntity<List<Skill>> getSkills() {
         return new ResponseEntity<>(iskillServ.getSkills(), HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping()
-    public ResponseEntity<Skill> addSkill(@RequestBody Skill skill){
+    public ResponseEntity<Skill> addSkill(@RequestBody Skill skill) {
         Skill newSkill = iskillServ.addSkill(skill);
         return new ResponseEntity<>(newSkill, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Skill> getSkillById(@PathVariable Long id){
+    public ResponseEntity<Skill> getSkillById(@PathVariable Long id) {
         return new ResponseEntity<>(iskillServ.getSkillById(id), HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteSkillById(@PathVariable Long id){
+    public ResponseEntity<?> deleteSkillById(@PathVariable Long id) {
         iskillServ.deleteSkillById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping()
-    public ResponseEntity<Skill> updateSkill(@RequestBody Skill skill)  {
+    public ResponseEntity<Skill> updateSkill(@RequestBody Skill skill) {
         Skill updatedSkill = iskillServ.updateSkill(skill);
         return new ResponseEntity<>(updatedSkill, HttpStatus.OK);
     }

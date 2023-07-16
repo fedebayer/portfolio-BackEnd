@@ -7,8 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Component
 public class CreateRoles implements CommandLineRunner {
+
     @Autowired
     RoleService roleService;
 
@@ -18,5 +22,5 @@ public class CreateRoles implements CommandLineRunner {
         Role roleUser = new Role(RoleName.ROLE_USER);
         roleService.addRole(roleAdmin);
         roleService.addRole(roleUser);
-    }
-}*/
+        
+        }*/

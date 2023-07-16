@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "https://porfolio-fb.web.app/")
+@CrossOrigin(origins = {"https://porfolio-fb.web.app/", "https://fedebayer.web.app/"})
 @RestController
 @RequestMapping("/languages")
 public class LanguageController {
@@ -21,32 +21,32 @@ public class LanguageController {
 
 
     @GetMapping()
-    public ResponseEntity<List<Language>> getLanguages(){
+    public ResponseEntity<List<Language>> getLanguages() {
         return new ResponseEntity<>(ilanguageServ.getLanguages(), HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping()
-    public ResponseEntity<Language> addLanguage(@RequestBody Language lang){
+    public ResponseEntity<Language> addLanguage(@RequestBody Language lang) {
         Language newLang = ilanguageServ.addLanguage(lang);
         return new ResponseEntity<>(newLang, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Language> getLanguageById(@PathVariable Long id){
+    public ResponseEntity<Language> getLanguageById(@PathVariable Long id) {
         return new ResponseEntity<>(ilanguageServ.getLanguageById(id), HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteLanguageById(@PathVariable Long id){
+    public ResponseEntity<?> deleteLanguageById(@PathVariable Long id) {
         ilanguageServ.deleteLanguageById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping()
-    public ResponseEntity<Language> updateLanguage(@RequestBody Language lang)  {
+    public ResponseEntity<Language> updateLanguage(@RequestBody Language lang) {
         Language updatedLang = ilanguageServ.updateLanguage(lang);
         return new ResponseEntity<>(updatedLang, HttpStatus.OK);
     }

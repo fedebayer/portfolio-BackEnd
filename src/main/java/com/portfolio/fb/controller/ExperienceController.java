@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "https://porfolio-fb.web.app/")
+@CrossOrigin(origins = {"https://porfolio-fb.web.app/", "https://fedebayer.web.app/"})
 @RestController
 @RequestMapping("/experiences")
 public class ExperienceController {
@@ -21,32 +21,32 @@ public class ExperienceController {
     }
 
     @GetMapping()
-    public ResponseEntity<List<Experience>> getExperiences(){
+    public ResponseEntity<List<Experience>> getExperiences() {
         return new ResponseEntity<>(iexpServ.getExperiences(), HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping()
-    public ResponseEntity<Experience> addExperience(@RequestBody Experience exp){
+    public ResponseEntity<Experience> addExperience(@RequestBody Experience exp) {
         Experience newExp = iexpServ.addExperience(exp);
         return new ResponseEntity<>(newExp, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Experience> getExperienceById(@PathVariable Long id){
+    public ResponseEntity<Experience> getExperienceById(@PathVariable Long id) {
         return new ResponseEntity<>(iexpServ.getExperienceById(id), HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteExperienceById(@PathVariable Long id){
+    public ResponseEntity<?> deleteExperienceById(@PathVariable Long id) {
         iexpServ.deleteExperienceById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping()
-    public ResponseEntity<Experience> updateExperience(@RequestBody Experience exp)  {
+    public ResponseEntity<Experience> updateExperience(@RequestBody Experience exp) {
         Experience updatedExp = iexpServ.updateExperience(exp);
         return new ResponseEntity<>(updatedExp, HttpStatus.OK);
     }
